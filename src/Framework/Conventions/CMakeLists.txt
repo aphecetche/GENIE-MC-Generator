@@ -1,0 +1,1 @@
+genie_add_library(FwConventions INTERFACE)

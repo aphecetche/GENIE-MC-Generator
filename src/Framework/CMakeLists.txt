@@ -1,0 +1,6 @@
+add_subdirectory(Conventions)
+add_subdirectory(Numerical)
+add_subdirectory(Interaction)
+add_subdirectory(Utils)
+add_subdirectory(Messenger)
+#add_subdirectory(Algorithm)

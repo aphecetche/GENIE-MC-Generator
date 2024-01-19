@@ -16,7 +16,6 @@
 #include <TH2D.h>
 #include <TVectorD.h>
 
-#include "Framework/Messenger/Messenger.h"
 #include "Framework/Utils/XmlParserUtils.h"
 
 #include "Framework/Utils/StringUtils.h"

@@ -1,0 +1,14 @@
+genie_add_library(FwInt 
+  SOURCES 
+    InitialState.cxx
+    Interaction.cxx
+    InteractionException.cxx
+    KPhaseSpace.cxx
+    Kinematics.cxx
+    ProcessInfo.cxx
+    Target.cxx
+    XclsTag.cxx
+  PUBLIC_LINK_LIBRARIES
+    ROOT::RIO
+    ROOT::Physics
+    GENIE::FwMsg)

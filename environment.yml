@@ -1,0 +1,8 @@
+name: genie
+channels:
+  - conda-forge
+dependencies:
+  - cmake=3.27.*
+  - ninja
+  - root=6.30.*
+  - log4cpp
