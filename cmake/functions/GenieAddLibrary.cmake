@@ -109,9 +109,8 @@ function(genie_add_library baseTargetName)
   # namespace GENIE::)
   set_property(TARGET ${target} PROPERTY EXPORT_NAME ${baseTargetName})
 
-  # output name of the lib will be libgenie-[baseTargetName].(so|dylib|a)
-  # TODO: change this to get the same naming as now, e.g FwMsg, etc...
-  set_property(TARGET ${target} PROPERTY OUTPUT_NAME genie-${baseTargetName})
+  # output name of the lib will be libG[baseTargetName].(so|dylib|a)
+  set_property(TARGET ${target} PROPERTY LIBRARY_OUTPUT_NAME G${baseTargetName})
 
   if(A_TARGETVARNAME)
     set(${A_TARGETVARNAME} ${target} PARENT_SCOPE)
