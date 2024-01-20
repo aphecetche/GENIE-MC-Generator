@@ -73,7 +73,7 @@ Messenger * Messenger::Instance()
     MSG.setAdditivity(false);
     MSG.addAppender(appender);
 
-    fInstance->Configure(); // set user-defined priority levels
+    //fInstance->Configure(); // set user-defined priority levels
   }
   return fInstance;
 }
@@ -92,6 +92,8 @@ void Messenger::SetPriorityLevel(
 
   MSG.setPriority(priority);
 }
+
+#if 0
 //____________________________________________________________________________
 void Messenger::Configure(void)
 {
@@ -188,6 +190,9 @@ bool Messenger::SetPrioritiesFromXmlFile(string filenames)
 
   return true;
 }
+
+#endif
+
 //____________________________________________________________________________
 log4cpp::Priority::Value Messenger::PriorityFromString(string p)
 {

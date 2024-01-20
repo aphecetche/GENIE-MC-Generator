@@ -3,6 +3,14 @@
 # to avoid circular dependencies, e.g with Framework/Messenger...
 #
 
+genie_add_library(FwUtlPrint
+  SOURCES
+    PrintUtils.cxx
+  ROOT_DICTIONARY
+    PrintUtils.h
+  LINKDEF
+    PrintUtilsLinkDef.h)
+
 genie_add_library(FwUtlStr
   SOURCES
     StringUtils.cxx
@@ -36,7 +44,6 @@ genie_add_library(FwUtlXml
 #     KineUtils.cxx
 #     PREM.cxx
 #     PhysUtils.cxx
-#     PrintUtils.cxx
 #     Range1.cxx
 #     RunOpt.cxx
 #     Style.cxx
@@ -63,16 +70,13 @@ genie_add_library(FwUtlXml
 #   KineUtils.h
 #   PREM.h
 #   PhysUtils.h
-#   PrintUtils.h
 #   Range1.h
 #   RunOpt.h
-#   StringUtils.h
 #   Style.h
 #   SystemUtils.h
 #   T2KEvGenMetaData.h
 #   TuneId.h
 #   UnitUtils.h
 #   XSecSplineList.h
-#   XmlParserUtils.h
 #   nm.h
 #   LinkDef.h MODULE FwUtl)

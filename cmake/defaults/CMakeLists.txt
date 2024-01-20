@@ -18,6 +18,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # our build options and their default values
 #
 option(GENIE_GENERATOR_ENABLE_TESTING "enable test" ${PROJECT_IS_TOP_LEVEL})
+option(GENIE_GENERATOR_ENABLE_PYTHIA6 "enable pythia6" ON)
+option(GENIE_GENERATOR_ENABLE_PYTHIA8 "enable pythia8" OFF)
 
 #
 # append our module path to the module path
@@ -31,6 +33,7 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules)
 set(GENIE_GENERATOR_STAGE_DIR ${PROJECT_BINARY_DIR}/stage)
 set(CMAKE_INSTALL_DOCDIR share/doc)
 set(CMAKE_INSTALL_DATADIR share/data)
+set(CMAKE_INSTALL_INCLUDEDIR include/GENIE)
 
 include(GNUInstallDirs)
 
