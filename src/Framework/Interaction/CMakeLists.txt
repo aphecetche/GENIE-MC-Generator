@@ -8,7 +8,10 @@ genie_add_library(FwInt
     ProcessInfo.cxx
     Target.cxx
     XclsTag.cxx
+  AUTO_ROOT_DICTIONARY 
   PUBLIC_LINK_LIBRARIES
-    ROOT::RIO
+    GENIE::FwMsg
+    GENIE::FwPartDat
     ROOT::Physics
-    GENIE::FwMsg)
+    ROOT::RIO
+)

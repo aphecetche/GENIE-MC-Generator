@@ -1,7 +1,12 @@
-add_library(FwAlg)
-target_sources(FwAlg PRIVATE 
-  AlgConfigPool.cxx
-  AlgFactory.cxx
-  AlgId.cxx
-  Algorithm.cxx)
-target_include_directories(FwAlg PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>)
+genie_add_library(FwAlg
+  SOURCES
+    AlgConfigPool.cxx
+    AlgFactory.cxx
+    AlgId.cxx
+    Algorithm.cxx
+  PUBLIC_LINK_LIBRARIES
+    GENIE::FwMsg
+    GENIE::FwReg
+    GENIE::FwUtlXml
+    ROOT::Hist
+)

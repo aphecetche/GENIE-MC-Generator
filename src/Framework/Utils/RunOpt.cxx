@@ -15,14 +15,15 @@
 #include <TBits.h>
 
 #include "Framework/GHEP/GHepFlags.h"
+#include "Framework/Messenger/Messenger.h"
 #include "Framework/Utils/CmdLnArgParser.h"
 #include "Framework/Utils/RunOpt.h"
 #include "Framework/Utils/SystemUtils.h"
-#include "Framework/Utils/XSecSplineList.h"
-#include "Framework/Messenger/Messenger.h"
+//#include "Framework/Utils/XSecSplineList.h"
+#include "Framework/Utils/XmlFilePaths.h"
 
-using std::cout;
-using std::endl;
+using std::string;
+using std::ostream;
 
 namespace genie {
 

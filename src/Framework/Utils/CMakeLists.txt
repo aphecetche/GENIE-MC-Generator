@@ -3,6 +3,20 @@
 # to avoid circular dependencies, e.g with Framework/Messenger...
 #
 
+genie_add_library(FwRunOpt
+  SOURCES
+    CmdLnArgParser.cxx
+    RunOpt.cxx
+    TuneId.cxx
+    XSecSplineList.cxx
+    XmlFilePaths.cxx
+  PUBLIC_LINK_LIBRARIES
+    GENIE::FwConventions
+    GENIE::FwMsg
+    GENIE::HEPBase
+    ROOT::Core
+)
+
 genie_add_library(FwUtlPrint
   SOURCES
     PrintUtils.cxx
@@ -27,56 +41,66 @@ genie_add_library(FwUtlXml
   LINKDEF
     XmlParserUtilsLinkDef.h
   PUBLIC_LINK_LIBRARIES
-    GENIE::FwUtlStr)
+    GENIE::FwMsg
+    GENIE::FwUtlStr
+    ROOT::Hist
+)
 
-# genie_add_library(FwUtl
-#   SOURCES
-#     AppInit.cxx
-#     BWFunc.cxx
-#     Cache.cxx
-#     CacheBranchFx.cxx
-#     CacheBranchNtp.cxx
-#     CmdLnArgParser.cxx
-#     ConfigIsotopeMapUtils.cxx
-#     GSimFiles.cxx
-#     GUIUtils.cxx
-#     HadXSUtils.cxx
-#     KineUtils.cxx
-#     PREM.cxx
-#     PhysUtils.cxx
-#     Range1.cxx
-#     RunOpt.cxx
-#     Style.cxx
-#     SystemUtils.cxx
-#     T2KEvGenMetaData.cxx
-#     TuneId.cxx
-#     UnitUtils.cxx
-#     XSecSplineList.cxx
-#   PUBLIC_LINK_LIBRARIES
-#     ROOT::RIO ROOT::Hist log4cpp::log4cpp)
-#
-# root_generate_dictionary(G__FwUtl 
-#   AppInit.h
-#   BWFunc.h
-#   Cache.h
-#   CacheBranchFx.h
-#   CacheBranchI.h
-#   CacheBranchNtp.h
-#   CmdLnArgParser.h
-#   ConfigIsotopeMapUtils.h
-#   GSimFiles.h
-#   GUIUtils.h
-#   HadXSUtils.h
-#   KineUtils.h
-#   PREM.h
-#   PhysUtils.h
-#   Range1.h
-#   RunOpt.h
-#   Style.h
-#   SystemUtils.h
-#   T2KEvGenMetaData.h
-#   TuneId.h
-#   UnitUtils.h
-#   XSecSplineList.h
-#   nm.h
-#   LinkDef.h MODULE FwUtl)
+ genie_add_library(FwUtl
+   SOURCES
+     AppInit.cxx
+     BWFunc.cxx
+     Cache.cxx
+     CacheBranchFx.cxx
+     CacheBranchNtp.cxx
+     CmdLnArgParser.cxx
+     ConfigIsotopeMapUtils.cxx
+     GSimFiles.cxx
+     GUIUtils.cxx
+     HadXSUtils.cxx
+     KineUtils.cxx
+     PREM.cxx
+     PhysUtils.cxx
+     Range1.cxx
+     RunOpt.cxx
+     Style.cxx
+     SystemUtils.cxx
+     T2KEvGenMetaData.cxx
+     TuneId.cxx
+     UnitUtils.cxx
+     XSecSplineList.cxx
+   ROOT_DICTIONARY
+     AppInit.h
+     BWFunc.h
+     Cache.h
+     CacheBranchFx.h
+     CacheBranchI.h
+     CacheBranchNtp.h
+     CmdLnArgParser.h
+     ConfigIsotopeMapUtils.h
+     GSimFiles.h
+     GUIUtils.h
+     HadXSUtils.h
+     KineUtils.h
+     PREM.h
+     PhysUtils.h
+     Range1.h
+     RunOpt.h
+     Style.h
+     SystemUtils.h
+     T2KEvGenMetaData.h
+     TuneId.h
+     UnitUtils.h
+     XSecSplineList.h
+     nm.h
+  LINKDEF
+     UtilsLinkDef.h
+   PUBLIC_LINK_LIBRARIES
+     GENIE::FwUtlPrint
+     GENIE::FwUtlStr
+     GENIE::FwUtlXml
+     ROOT::Hist 
+     ROOT::RIO
+     log4cpp::log4cpp
+)
+

@@ -22,6 +22,7 @@
 #include <string>
 
 #include "Framework/Utils/TuneId.h"
+#include "TuneId.h"
 
 class TBits;
 
@@ -30,6 +31,7 @@ using std::ostream;
 namespace genie {
 
 class RunOpt;
+
 ostream & operator << (ostream & stream, const RunOpt & opt);
 
 class RunOpt

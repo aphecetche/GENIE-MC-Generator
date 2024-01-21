@@ -27,6 +27,7 @@
 #include "Framework/Messenger/Messenger.h"
 #include "Framework/Registry/RegistryItemTypeDef.h"
 #include "Framework/Utils/XmlParserUtils.h"
+#include "Framework/Utils/XmlFilePaths.h"
 
 #include "Framework/Utils/StringUtils.h"
 

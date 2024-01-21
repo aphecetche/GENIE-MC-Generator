@@ -1,0 +1,10 @@
+genie_add_library(FwReg
+  SOURCES
+    Registry.cxx
+    RegistryItem.cxx
+    RegistryItemTypeDef.cxx
+  AUTO_ROOT_DICTIONARY
+  PUBLIC_LINK_LIBRARIES
+    GENIE::FwMsg
+    ROOT::Hist
+)

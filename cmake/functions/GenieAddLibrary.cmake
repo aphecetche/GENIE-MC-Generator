@@ -28,6 +28,14 @@ include(GenieNameTarget)
 #   the library) : specify the list of relative filepaths
 #   needed for the dictionary definition
 #
+# * AUTO_ROOT_DICTIONARY : for libraries where _all_ the include files 
+#   should be part of a Root dictionary, this option will glob all the *.h
+#   files and use those for the dictionary. Mutually exclusive with 
+#   the manual version ROOT_DICTIONARY. WARNING: this is a convenience
+#   function, but it's not recommended, as it uses the CMake
+#   file(GLOB), which is discouraged by CMake authours. 
+#   Please see https://cmake.org/cmake/help/latest/command/file.html#glob
+#
 # * LINKDEF (not needed in most cases) is a single relative filepath
 #   to the LinkDef file needed by rootcling.
 #   If the LINKDEF parameter is not present but there is a LinkDef.h
@@ -70,7 +78,7 @@ function(genie_add_library baseTargetName)
     PARSE_ARGV
     1
     A
-    "INTERFACE"
+    "INTERFACE;AUTO_ROOT_DICTIONARY"
     "TARGETVARNAME;LINKDEF"
     "SOURCES;PUBLIC_LINK_LIBRARIES;PRIVATE_LINK_LIBRARIES;PUBLIC_INCLUDE_DIRECTORIES;PRIVATE_INCLUDE_DIRECTORIES;PUBLIC_HEADER;ROOT_DICTIONARY;COMPILE_DEFINITIONS"
     )
@@ -90,6 +98,10 @@ function(genie_add_library baseTargetName)
       message(
         FATAL_ERROR "Target ${baseTargetName} cannot be INTERFACE and have ROOT_DICTIONARY")
     endif()
+  endif()
+
+  if(A_ROOT_DICTIONARY AND A_AUTO_ROOT_DICTIONARY)
+    message(FATAL_ERROR "Target ${baseTargetName}: ROOT_DICTIONARY and AUTO_ROOT_DICTIONARY options cannot be used at the same time. Pick one.")
   endif()
 
   genie_name_target(${baseTargetName} NAME targetName)
@@ -211,7 +223,15 @@ function(genie_add_library baseTargetName)
           ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
           PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${destination})
 
-  if (A_ROOT_DICTIONARY)
+  if(A_ROOT_DICTIONARY)
+    set(includesForRootDict "${A_ROOT_DICTIONARY}")
+  endif()
+  if(A_AUTO_ROOT_DICTIONARY)
+    file(GLOB includesForRootDict RELATIVE ${CMAKE_CURRENT_LIST_DIR} "*.h")
+    list(REMOVE_ITEM includesForRootDict LinkDef.h)
+  endif()
+  
+  if (includesForRootDict)
     # ensure we have a LinkDef, either explicity given by LINKDEF parameter
     # or the default LinkDef.h in current dir
     if(NOT A_LINKDEF)
@@ -231,6 +251,6 @@ function(genie_add_library baseTargetName)
       target_link_libraries(${target} PUBLIC ROOT::RIO)
     endif()
     root_generate_dictionary(G__${baseTargetName}
-       "${A_ROOT_DICTIONARY}" ${A_LINKDEF} MODULE ${target})
+            "${includesForRootDict}" ${A_LINKDEF} MODULE ${target})
   endif()
 endfunction()

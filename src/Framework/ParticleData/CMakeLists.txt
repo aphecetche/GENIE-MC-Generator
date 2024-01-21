@@ -1,0 +1,13 @@
+genie_add_library(FwPartDat
+  SOURCES
+    BaryonResList.cxx
+    BaryonResUtils.cxx
+    NaturalIsotopes.cxx
+    PDGCodeList.cxx
+    PDGLibrary.cxx
+    PDGUtils.cxx
+  AUTO_ROOT_DICTIONARY
+  PUBLIC_LINK_LIBRARIES
+    GENIE::FwMsg
+    ROOT::EG
+)

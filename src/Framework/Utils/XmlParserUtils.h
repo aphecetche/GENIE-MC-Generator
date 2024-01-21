@@ -67,22 +67,9 @@ namespace xml   {
 #endif
 
   //_________________________________________________________________________
-  string GetXMLPathList( bool add_tune = true ) ;
-  // Get a colon separated list of potential locations for xml files
-  // e.g. ".:$MYSITEXML:/path/to/exp/version:$GALGCONF:$GENIE/config"
-  // user additions should be in $GXMLPATH
-
   //_________________________________________________________________________
   inline string GetXMLDefaultPath() { return "$GENIE/config" ; }
   //standard path in case no env variable are set
-
-  //_________________________________________________________________________
-  string GetXMLFilePath(string basename) ;
-  // return a full path to a real XML file
-  // e.g. passing in "GNuMIFlux.xml"
-  //   will return   "/blah/GENIE/HEAD/config/GNuMIFlux.xml"
-  // allow ::colon:: ::semicolon:: and ::comma:: as path item separators
-  //_________________________________________________________________________
 
 #if !defined(__CINT__) && !defined(__MAKECINT__)
 

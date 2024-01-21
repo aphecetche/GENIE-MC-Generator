@@ -16,11 +16,13 @@
 #include "TPRegexp.h"
 #include "TObjArray.h"
 #include "TObjString.h"
+#include "TSystem.h"
 
 #include "Framework/Utils/TuneId.h"
 
 #include "Framework/Utils/StringUtils.h"
 #include "Framework/Utils/XmlParserUtils.h"
+#include "Framework/Utils/XmlFilePaths.h"
 #include "Framework/Utils/SystemUtils.h"
 
 #include "Framework/Messenger/Messenger.h"
